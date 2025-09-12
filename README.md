@@ -30,8 +30,78 @@ To develop a simple C program to implement Rail Fence Cipher.
 
 
 ## PROGRAM:
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    int i, j, k, l;
+    char a[20], c[20], d[20];
+    
+    printf("\n\t\tRAIL FENCE TECHNIQUE\n");
+    
+    // Safely getting input string using fgets instead of gets
+    printf("\nEnter the input string: ");
+    fgets(a, sizeof(a), stdin);
+    
+    // Removing the newline character if it exists
+    a[strcspn(a, "\n")] = '\0';
+    l = strlen(a); // Get the length of the input string
+    
+    // Rail fence encryption: first collect even indices, then odd
+    j = 0;
+    // First pass: even indices (0, 2, 4, ...)
+    for (i = 0; i < l; i += 2)
+    {
+        c[j++] = a[i];
+    }
+    // Second pass: odd indices (1, 3, 5, ...)
+    for (i = 1; i < l; i += 2)
+    {
+        c[j++] = a[i];
+    }
+    c[j] = '\0'; // Null-terminate the encrypted string
+    
+    printf("\nCipher text after applying rail fence: %s\n", c);
+    
+    // Rail fence decryption
+    if (l % 2 == 0)
+    {
+        k = l / 2;
+    }
+    else
+    {
+        k = (l / 2) + 1;
+    }
+    
+    // Reconstructing the original text
+    j = 0;
+    // First half of ciphertext goes to even positions
+    for (i = 0; i < k; i++)
+    {
+        d[j] = c[i];
+        j += 2;
+    }
+    
+    j = 1;
+    // Second half of ciphertext goes to odd positions
+    for (i = k; i < l; i++)
+    {
+        d[j] = c[i];
+        j += 2;
+    }
+    d[l] = '\0'; // Null-terminate the decrypted string
+    
+    printf("\nText after decryption: %s\n", d);
+    
+       
+    return 0;
+}
+```
 
 ## OUTPUT:
+<img width="911" height="420" alt="Screenshot 2025-09-12 084531" src="https://github.com/user-attachments/assets/1ec354de-8ed1-47d0-b72f-e4173385294b" />
 
 ## RESULT:
 The program implementing the Rail Fence cipher for encryption and decryption has been successfully	executed,	and	the	results	have	been	verified.
