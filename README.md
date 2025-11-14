@@ -101,7 +101,7 @@ int main()
 ```
 
 ## OUTPUT:
-<img width="911" height="420" alt="Screenshot 2025-09-12 084531" src="https://github.com/user-attachments/assets/1ec354de-8ed1-47d0-b72f-e4173385294b" />
+<img width="2649" height="1528" alt="image" src="https://github.com/user-attachments/assets/ded45b6a-dcb8-4279-98ba-8ee36793f2fd" />
 
 ## RESULT:
 The program implementing the Rail Fence cipher for encryption and decryption has been successfully	executed,	and	the	results	have	been	verified.
